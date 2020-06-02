@@ -35,7 +35,7 @@ function removeBus(event) {
     }
 }
 
-document.addEventListener('keypress', removeBus); 
+document.addEventListener('keydown', removeBus); 
 
 // 5 Adds bus image
 function addBus(event) {
@@ -45,4 +45,20 @@ function addBus(event) {
     }
 }
 
-document.addEventListener('keypress', addBus); 
+document.addEventListener('keydown', addBus);
+
+// 6 Changes text to purple on mouseover
+function purpleText(event) {
+        event.target.style.color = "purple";
+        event.stopPropagation();
+}
+
+document.addEventListener('mouseover', purpleText);
+
+// 7 Changes text back to black on mouseout
+function blackText(event) {
+    event.target.style.color = "black";
+        event.stopPropagation();
+}
+
+document.addEventListener('mouseout', blackText);
