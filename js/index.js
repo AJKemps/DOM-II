@@ -19,10 +19,10 @@ document.addEventListener('click', function() {
     event.stopPropagation();
 });
 
-// 3 Text turns black on dblclick anywhere
+// 3 Text turns back on dblclick anywhere
 document.addEventListener('dblclick', function() {
     if (document.body.style.color = "") {
-        document.body.style.color = 'black';
+        document.body.style.color = '';
     }
     console.log('dblclick anywhere for black text')
 });
@@ -55,10 +55,37 @@ function purpleText(event) {
 
 document.addEventListener('mouseover', purpleText);
 
-// 7 Changes text back to black on mouseout
-function blackText(event) {
-    event.target.style.color = "black";
+// 7 Changes text back to original on mouseout
+function regText(event) {
+    event.target.style.color = "";
         event.stopPropagation();
 }
 
-document.addEventListener('mouseout', blackText);
+document.addEventListener('mouseout', regText);
+
+// 8 Message on load
+window.addEventListener('load', (event) => {
+    console.log('page is fully loaded');
+  });
+
+// 9 Dark mode
+const firstSignUp = document.querySelector('.btn');
+firstSignUp.textContent = "Dark Mode";
+
+function darkMode(event) {
+    document.body.style.color = "white";
+    document.body.style.backgroundColor = "black";
+    event.stopPropagation();
+}
+
+firstSignUp.addEventListener('click', darkMode)
+
+// 10 Take to Google
+const aboutUs = document.querySelectorAll('nav a:nth-of-type(2)')
+console.log(aboutUs);
+
+function toGoogle() {
+    aboutUs[0]['href'] = 'https://google.com'
+}
+
+window.addEventListener('load', toGoogle)
